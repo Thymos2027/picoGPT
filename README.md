@@ -30,13 +30,14 @@ A quick breakdown of each of the files:
 
 #### Dependencies
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
-Tested on `Python 3.9.10`.
+The project uses Python 3.10 and uv will install it if needed. The dependencies
+are recorded in `pyproject.toml` and locked in `uv.lock`.
 
 #### Usage
 ```bash
-python gpt2.py "Alan Turing theorized that computers would one day become"
+uv run gpt2.py "Alan Turing theorized that computers would one day become"
 ```
 
 Which generates
@@ -50,7 +51,7 @@ The computer is a machine that can perform complex calculations, and it can perf
 You can also control the number of tokens to generate, the model size (one of `["124M", "355M", "774M", "1558M"]`), and the directory to save the models:
 
 ```bash
-python gpt2.py \
+uv run gpt2.py \
     "Alan Turing theorized that computers would one day become" \
     --n_tokens_to_generate 40 \
     --model_size "124M" \
